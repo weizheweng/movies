@@ -1,7 +1,8 @@
-import { Box, Text, Image, VStack, Tag, TagLeftIcon, HStack } from '@chakra-ui/react'
+import { Box, Text, Image, VStack, Tag, TagLeftIcon, HStack, AspectRatio } from '@chakra-ui/react'
 import { type Movie } from '../../types/Movies'
 import { MOVIE_IMAGE_BASE_URL } from '../../constants/constants'
 import { StarIcon } from '@chakra-ui/icons'
+import { useState } from 'react'
 
 interface MoviesListCardProps {
   data: Movie,
@@ -19,10 +20,24 @@ const cardStyle = {
 export function MoviesListCard ({ data }: MoviesListCardProps) {
   const { title, poster_path: posterPath } = data
   const imagePath = `${MOVIE_IMAGE_BASE_URL}${posterPath}`
+  const [isLoad, setIsLoad] = useState(false)
+
   // const canClick = data?.id
   return (
     <Box sx={cardStyle} _hover={{ opacity: 0.6 }}>
-      <Image src={imagePath} alt={data.title} width="100%" bgColor="gray.800" borderTopRadius={6} />
+      <AspectRatio maxW="200px" ratio={3 / 4}>
+        <Image
+          src={imagePath}
+          alt={data.title}
+          width="100%"
+          bgColor="gray.300"
+          borderTopRadius={6}
+          opacity={isLoad ? 1 : 0}
+          transition="opacity 0.6s ease-in-out"
+          onLoad={() => setIsLoad(true)}
+
+        />
+      </AspectRatio>
       <VStack p={2} pt={3} gap={1.5} alignItems="flex-start">
         <HStack gap={2}>
           <Tag>

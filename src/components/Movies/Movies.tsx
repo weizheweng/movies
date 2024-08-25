@@ -1,13 +1,14 @@
 import { MovieList } from './MovieList'
 import { Pagination } from '../Layout/Pagination'
-import { useNavigate, useSearchParams } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { useMoviesNowPlaying } from '../../hooks-api/useMoviesNowPlaying'
+import { useCurrentPage } from '../../hooks/useCurrentPage'
+import { SkeletonMovieList } from '../Skeleton/SkeletonMovieList'
 
 export function Movies () {
-  const [searchParams] = useSearchParams()
+  const currentPage = useCurrentPage()
   const history = useNavigate()
-  const currentPage = searchParams.get('page') || 1
-  const { data } = useMoviesNowPlaying(Number(currentPage))
+  const { data, isLoading } = useMoviesNowPlaying(Number(currentPage))
   const { total_pages: totalPages } = data || {}
 
   const handlePageChange = (page: number) => {
@@ -16,7 +17,7 @@ export function Movies () {
 
   return (
     <>
-      <MovieList />
+      {isLoading ? <SkeletonMovieList /> : <MovieList />}
       <Pagination currentPage={Number(currentPage)} totalPages={totalPages} handlePageChange={handlePageChange} />
     </>
   )

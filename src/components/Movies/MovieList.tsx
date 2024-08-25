@@ -1,12 +1,11 @@
 import { Heading, SimpleGrid } from '@chakra-ui/react'
 import { MoviesListCard } from './MoviesListCard'
-import { useSearchParams } from 'react-router-dom'
 import { useMoviesNowPlaying } from '../../hooks-api/useMoviesNowPlaying'
+import { useCurrentPage } from '../../hooks/useCurrentPage'
 
 export function MovieList () {
-  const [searchParams] = useSearchParams()
-  const page = searchParams.get('page') || 1
-  const { data } = useMoviesNowPlaying(Number(page))
+  const currentPage = useCurrentPage()
+  const { data } = useMoviesNowPlaying(Number(currentPage))
 
   return (
     <>
