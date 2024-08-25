@@ -3,6 +3,7 @@ import { type Movie } from '../../types/Movies'
 import { MOVIE_IMAGE_BASE_URL } from '../../constants/constants'
 import { StarIcon } from '@chakra-ui/icons'
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 interface MoviesListCardProps {
   data: Movie,
@@ -17,14 +18,14 @@ const cardStyle = {
   cursor: 'pointer',
 }
 
-export function MoviesListCard ({ data }: MoviesListCardProps) {
+export function MovieListCard ({ data }: MoviesListCardProps) {
+  const navigate = useNavigate()
   const { title, poster_path: posterPath } = data
   const imagePath = `${MOVIE_IMAGE_BASE_URL}${posterPath}`
   const [isLoad, setIsLoad] = useState(false)
 
-  // const canClick = data?.id
   return (
-    <Box sx={cardStyle} _hover={{ opacity: 0.6 }}>
+    <Box sx={cardStyle} _hover={{ opacity: 0.6 }} onClick={() => navigate(`/movies/${data.id}`)}>
       <AspectRatio maxW="200px" ratio={3 / 4}>
         <Image
           src={imagePath}
