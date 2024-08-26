@@ -1,14 +1,12 @@
 import useSWR from 'swr'
 import { urlWithQueryParams } from '../utils/urlWithQueryParams'
 import { tmdbSWRFetcher } from '../utils/tmdbSWRFetcher'
-import { type MovieList } from '../types/Movies'
-import { LANGUAGE, REGION } from '../constants/constants'
+import { type MovieDetails } from '../types/MovieDetails'
+import { LANGUAGE } from '../constants/constants'
 
-export function useMoviesNowPlaying (page?: number) {
-  const key = urlWithQueryParams('/movie/now_playing',
-    { language: LANGUAGE, page, region: REGION }
-  )
-  const { data, error, isLoading, mutate } = useSWR<MovieList>(key, tmdbSWRFetcher)
+export function useMovieDetails (movieId?: string) {
+  const key = urlWithQueryParams(`/movie/${movieId}`, { language: LANGUAGE })
+  const { data, error, isLoading, mutate } = useSWR<MovieDetails>(key, tmdbSWRFetcher)
 
   return {
     data,
