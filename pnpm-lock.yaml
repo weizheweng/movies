@@ -26,6 +26,9 @@ dependencies:
   framer-motion:
     specifier: ^11.3.28
     version: 11.3.30(react-dom@18.2.0)(react@18.2.0)
+  opencc-js:
+    specifier: ^1.0.5
+    version: 1.0.5
   query-string:
     specifier: ^9.1.0
     version: 9.1.0
@@ -49,6 +52,9 @@ devDependencies:
   '@types/node':
     specifier: ^22.5.0
     version: 22.5.0
+  '@types/opencc-js':
+    specifier: ^1.0.3
+    version: 1.0.3
   '@types/react':
     specifier: ^18.2.15
     version: 18.2.15
@@ -2002,6 +2008,10 @@ packages:
     resolution: {integrity: sha512-DkFrJOe+rfdHTqqMg0bSNlGlQ85hSoh2TPzZyhHsXnMtligRWpxUySiyw8FY14ITt24HVCiQPWxS3KO/QlGmWg==}
     dependencies:
       undici-types: 6.19.8
+
+  /@types/opencc-js@1.0.3:
+    resolution: {integrity: sha512-TENp7YkI2hNlc4dplhivSHj0hU4DORCK56VY7rniaSfA5f87uD3uv+kPIRuH9h64TGv976iVFi4gEHZZtS2y8Q==}
+    dev: true
 
   /@types/parse-json@4.0.0:
     resolution: {integrity: sha512-//oorEZjL6sbPcKUaCdIGlIUeH26mgzimjBB77G6XRgnDl/L5wOnpyBGRe/Mmf5CVW3PwEBE1NjiMZ/ssFh4wA==}
@@ -3970,6 +3980,10 @@ packages:
     dependencies:
       mimic-fn: 2.1.0
     dev: true
+
+  /opencc-js@1.0.5:
+    resolution: {integrity: sha512-LD+1SoNnZdlRwtYTjnQdFrSVCAaYpuDqL5CkmOaHOkKoKh7mFxUicLTRVNLU5C+Jmi1vXQ3QL4jWdgSaa4sKjg==}
+    dev: false
 
   /optionator@0.9.3:
     resolution: {integrity: sha512-JjCoypp+jKn1ttEFExxhetCKeJt9zhAgAve5FXHixTvFDW/5aEktX9bufBKLRRMdU7bNtpLfcGu94B3cdEJgjg==}

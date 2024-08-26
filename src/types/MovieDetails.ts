@@ -1,4 +1,4 @@
-export interface MovieDetail {
+export interface MovieDetails {
   adult: boolean,
   backdrop_path: string,
   belongs_to_collection: BelongsToCollection,
@@ -14,7 +14,7 @@ export interface MovieDetail {
   popularity: number,
   poster_path: string,
   production_companies: ProductionCompany[],
-  release_date: Date,
+  release_date: string,
   revenue: number,
   runtime: number,
   status: string,
