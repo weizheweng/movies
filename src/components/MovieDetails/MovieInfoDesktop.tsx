@@ -11,6 +11,7 @@ interface MovieInfoDesktopProps {
 
 export function MovieInfoDesktop ({ imagePath, title, videoUrl }: MovieInfoDesktopProps) {
   const [isLoad, setIsLoad] = useState(false)
+  const [isVideoLoad, setIsVideoLoad] = useState(false)
 
   return (
     <>
@@ -32,10 +33,16 @@ export function MovieInfoDesktop ({ imagePath, title, videoUrl }: MovieInfoDeskt
         <GridItem colSpan={8}>
           <AspectRatio>
             <iframe
+              key={videoUrl}
               title={title}
               src={videoUrl}
               allowFullScreen
-              style={{ borderRadius: 12 }}
+              onLoad={() => setIsVideoLoad(true)}
+              style={{
+                borderRadius: 12,
+                opacity: isVideoLoad ? 1 : 0,
+                transition: 'opacity 0.5s ease-in-out',
+              }}
             />
           </AspectRatio>
         </GridItem>

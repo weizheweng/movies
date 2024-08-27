@@ -1,25 +1,21 @@
 import { StarIcon } from '@chakra-ui/icons'
-import { HStack, Text } from '@chakra-ui/react'
+import { HStack, Text, useBreakpointValue } from '@chakra-ui/react'
 
 interface MovieVoteProps {
   voteAverage?: number,
-  voteCount?: number,
 }
 
-export function MovieVote ({ voteAverage, voteCount }: MovieVoteProps) {
-  const convertedVoteAverage = voteCount ? (voteCount / 1000).toFixed(1) : 0
+export function MovieVote ({ voteAverage }: MovieVoteProps) {
+  const fontSize = useBreakpointValue({ base: 'lg', sm: 'lg', md: 'xl', lg: 'xl' })
   return (
     <HStack gap={1} width="100%" justifyContent="flex-end">
-      <StarIcon color="yellow.500" />
+      <StarIcon color="yellow.500" fontSize={fontSize} />
       <HStack gap={0}>
-        <Text as="b">
+        <Text as="b" fontSize={fontSize}>
           {voteAverage?.toFixed(1)}
         </Text>
-        <Text color="gray.500">/10</Text>
+        <Text color="gray.500" fontSize={fontSize}>/10</Text>
       </HStack>
-      <Text ml={2} color="gray.500">
-        {`${convertedVoteAverage}K`}
-      </Text>
     </HStack>
   )
 }

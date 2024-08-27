@@ -5,9 +5,9 @@ import { Text, useBreakpointValue } from '@chakra-ui/react'
 export function MovieOverview () {
   const { id } = useParams()
   const { data: movieDetailSData } = useMovieDetails(id)
-  const fontSize = useBreakpointValue({ base: 'xs', sm: 'md', md: 'lg', lg: 'lg' })
+  const fontSize = useBreakpointValue({ base: 'md', sm: 'md', md: 'lg', lg: 'lg' })
   const { overview } = movieDetailSData || {}
   return (
-    <Text fontSize={fontSize}>{overview}</Text>
+    <Text fontSize={fontSize} noOfLines={9}>{overview}</Text>
   )
 }

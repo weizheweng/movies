@@ -37,7 +37,7 @@ interface Genre {
   name: string,
 }
 
-interface ProductionCompany {
+export interface ProductionCompany {
   id: number,
   logo_path: null | string,
   name: string,
