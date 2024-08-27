@@ -4,9 +4,11 @@ import { MovieHeader } from '../Header/MovieHeader'
 
 export function Layout () {
   return (
-    <Box mt={14} p={4} maxWidth="1200px" height="100%">
+    <Box maxWidth="1200px" height="100%" margin="0 auto">
       <MovieHeader />
-      <Outlet />
+      <Box mt={14} p={4}>
+        <Outlet />
+      </Box>
     </Box>
   )
 }

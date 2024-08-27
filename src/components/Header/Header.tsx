@@ -23,6 +23,8 @@ export function Header ({ left, right }: HeaderProps) {
     zIndex: zIndex.header,
     backgroundColor: isLight ? colors.white : colors.gray['800'],
     boxShadow: '0 4px 4px rgba(0, 0, 0, 0.1)',
+    maxWidth: '1200px',
+    margin: '0 auto',
   }
   return (
     <HStack sx={headerStyle}>
