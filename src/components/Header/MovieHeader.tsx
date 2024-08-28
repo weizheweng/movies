@@ -2,11 +2,14 @@ import { Box, IconButton, useColorMode } from '@chakra-ui/react'
 import { Logo } from '../Icons/Icons'
 import { Header } from './Header'
 import { SunIcon, MoonIcon } from '@chakra-ui/icons'
+import { useNavigate } from 'react-router-dom'
 
 const Left = () => {
+  const navigate = useNavigate()
+  const handleToHomePage = () => navigate('/')
   return (
     <Box h={6} w={6}>
-      <Logo />
+      <Logo onClick={handleToHomePage} />
     </Box>
   )
 }
