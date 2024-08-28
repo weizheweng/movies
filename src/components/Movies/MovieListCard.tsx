@@ -7,10 +7,6 @@ import { useNavigate } from 'react-router-dom'
 import { colors } from '../../styles/colors'
 import { MovieSynopsisModal } from './MovieSynopsisModal'
 
-interface MoviesListCardProps {
-  data: Movie,
-}
-
 const cardStyle = {
   width: '100%',
   height: '100%',
@@ -19,8 +15,12 @@ const cardStyle = {
   boxShadow: '2px 2px 4px 2px rgba(0, 0, 0, 0.1)',
   cursor: 'pointer',
 }
+interface MoviesListCardProps {
+  data: Movie,
+  isShowLanguage?: boolean,
+}
 
-export function MovieListCard ({ data }: MoviesListCardProps) {
+export function MovieListCard ({ data, isShowLanguage = true }: MoviesListCardProps) {
   const navigate = useNavigate()
   const { title, poster_path: posterPath } = data
   const imagePath = `${MOVIE_IMAGE_BASE_URL}${posterPath}`
@@ -51,11 +51,14 @@ export function MovieListCard ({ data }: MoviesListCardProps) {
                   {(data.vote_average).toFixed(1)}
                 </TagLabel>
               </Tag>
-              <Tag backgroundColor={colors.gray['300']}>
-                <TagLabel color={colors.gray['800']}>
-                  {data.original_language.toUpperCase()}
-                </TagLabel>
-              </Tag>
+              {
+                isShowLanguage &&
+                  <Tag backgroundColor={colors.gray['300']}>
+                    <TagLabel color={colors.gray['800']}>
+                      {data.original_language.toUpperCase()}
+                    </TagLabel>
+                  </Tag>
+              }
             </Flex>
             <Icon as={InfoIcon} boxSize={5} _hover={{ opacity: 0.6 }} onClick={onOpen} />
           </HStack>
