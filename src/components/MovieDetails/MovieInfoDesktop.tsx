@@ -2,6 +2,7 @@ import { AspectRatio, Grid, GridItem, Image } from '@chakra-ui/react'
 import { useState } from 'react'
 import { MovieGenres } from './MovieGenres'
 import { MovieOverview } from './MovieOverview'
+import { useParams } from 'react-router-dom'
 
 interface MovieInfoDesktopProps {
   imagePath?: string,
@@ -10,13 +11,14 @@ interface MovieInfoDesktopProps {
 }
 
 export function MovieInfoDesktop ({ imagePath, title, videoUrl }: MovieInfoDesktopProps) {
+  const { movieId } = useParams()
   const [isLoad, setIsLoad] = useState(false)
   const [isVideoLoad, setIsVideoLoad] = useState(false)
 
   return (
     <>
       <Grid templateColumns="repeat(12, 1fr)" gap={4} alignItems="center" width="100%">
-        <GridItem colSpan={4} borderRadius={12} boxShadow="2px 2px 4px 2px rgba(0, 0, 0, 0.1)">
+        <GridItem colSpan={4}>
           <AspectRatio ratio={4.5 / 7}>
             <Image
               src={imagePath}
@@ -27,6 +29,7 @@ export function MovieInfoDesktop ({ imagePath, title, videoUrl }: MovieInfoDeskt
               transition="opacity 0.6s ease-in-out"
               onLoad={() => setIsLoad(true)}
               borderRadius={12}
+              boxShadow="2px 2px 4px 2px rgba(0, 0, 0, 0.1)"
             />
           </AspectRatio>
         </GridItem>
@@ -47,8 +50,8 @@ export function MovieInfoDesktop ({ imagePath, title, videoUrl }: MovieInfoDeskt
           </AspectRatio>
         </GridItem>
       </Grid>
-      <MovieGenres />
-      <MovieOverview />
+      <MovieGenres movieId={movieId} />
+      <MovieOverview movieId={movieId} />
     </>
   )
 }

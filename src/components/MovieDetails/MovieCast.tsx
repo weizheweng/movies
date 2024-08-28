@@ -6,8 +6,8 @@ import { MovieCastModal } from './MovieCastModal'
 import { colors } from '../../styles/colors'
 
 export function MovieCast () {
-  const { id } = useParams()
-  const { data: movieCreditsData } = useMovieCredits(id)
+  const { movieId } = useParams()
+  const { data: movieCreditsData } = useMovieCredits(movieId)
   const castList = movieCreditsData?.cast.slice(0, 15)
   const { isOpen, onOpen, onClose } = useDisclosure()
 

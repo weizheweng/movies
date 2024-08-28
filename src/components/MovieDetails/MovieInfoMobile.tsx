@@ -2,6 +2,7 @@ import { AspectRatio, Grid, GridItem, Image } from '@chakra-ui/react'
 import { useState } from 'react'
 import { MovieGenres } from './MovieGenres'
 import { MovieOverview } from './MovieOverview'
+import { useParams } from 'react-router-dom'
 
 interface MovieInfoDesktopProps {
   imagePath?: string,
@@ -10,6 +11,7 @@ interface MovieInfoDesktopProps {
 }
 
 export function MovieInfoMobile ({ imagePath, title, videoUrl }: MovieInfoDesktopProps) {
+  const { movieId } = useParams()
   const [isLoad, setIsLoad] = useState(false)
   const [isVideoLoad, setIsVideoLoad] = useState(false)
 
@@ -49,8 +51,8 @@ export function MovieInfoMobile ({ imagePath, title, videoUrl }: MovieInfoDeskto
           </AspectRatio>
         </GridItem>
       </Grid>
-      <MovieGenres />
-      <MovieOverview />
+      <MovieGenres movieId={movieId} />
+      <MovieOverview movieId={movieId} />
     </>
   )
 }

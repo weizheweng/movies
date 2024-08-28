@@ -4,8 +4,8 @@ import { HStack, Text, VStack } from '@chakra-ui/react'
 import { AvatarTooltip } from '../common/AvatarTooltip'
 
 export function MovieDirector () {
-  const { id } = useParams()
-  const { data: movieCreditsData } = useMovieCredits(id)
+  const { movieId } = useParams()
+  const { data: movieCreditsData } = useMovieCredits(movieId)
   const directors = movieCreditsData?.crew.filter(crew => crew.job === 'Director')
   return (
     <VStack alignItems="flex-start" width="100%" gap={3}>
