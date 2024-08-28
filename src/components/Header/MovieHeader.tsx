@@ -8,7 +8,7 @@ const Left = () => {
   const navigate = useNavigate()
   const handleToHomePage = () => navigate('/')
   return (
-    <Box h={6} w={6}>
+    <Box h={6} w={6} cursor="pointer">
       <Logo onClick={handleToHomePage} />
     </Box>
   )
