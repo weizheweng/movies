@@ -12,6 +12,7 @@ export function Movies () {
   const { total_pages: totalPages } = data || {}
 
   const handlePageChange = (page: number) => {
+    window.scrollTo(0, 0)
     navigate(`/movies?page=${page}`)
   }
 

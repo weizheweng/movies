@@ -27,10 +27,15 @@ export function MovieListCard ({ data, isShowLanguage = true }: MovieListCardPro
   const [isLoad, setIsLoad] = useState(false)
   const { isOpen, onOpen, onClose } = useDisclosure()
 
+  const handleMovieClick = () => {
+    window.scrollTo(0, 0)
+    navigate(`/movies/${data.id}`)
+  }
+
   return (
     <>
       <Box sx={cardStyle}>
-        <AspectRatio ratio={2 / 3} _hover={{ opacity: 0.6 }} onClick={() => navigate(`/movies/${data.id}`)}>
+        <AspectRatio ratio={2 / 3} _hover={{ opacity: 0.6 }} onClick={handleMovieClick}>
           <Image
             src={imagePath}
             alt={title}
