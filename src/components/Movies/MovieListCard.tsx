@@ -15,12 +15,12 @@ const cardStyle = {
   boxShadow: '2px 2px 4px 2px rgba(0, 0, 0, 0.1)',
   cursor: 'pointer',
 }
-interface MoviesListCardProps {
+interface MovieListCardProps {
   data: Movie,
   isShowLanguage?: boolean,
 }
 
-export function MovieListCard ({ data, isShowLanguage = true }: MoviesListCardProps) {
+export function MovieListCard ({ data, isShowLanguage = true }: MovieListCardProps) {
   const navigate = useNavigate()
   const { title, poster_path: posterPath } = data
   const imagePath = `${MOVIE_IMAGE_BASE_URL}${posterPath}`
