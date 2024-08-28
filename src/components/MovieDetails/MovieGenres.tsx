@@ -14,7 +14,7 @@ export function MovieGenres () {
     <HStack alignItems="flex-start" width="100%" gap={3} overflowX="auto">
       {
         genres?.map(genre => (
-          <Tag key={genre.id} backgroundColor={colors.gray['300']}>
+          <Tag key={genre.id} backgroundColor={colors.gray['300']} borderRadius={8}>
             <TagLabel fontSize={fontSize} color={colors.gray['800']}>
               {converter(genre.name)}
             </TagLabel>
