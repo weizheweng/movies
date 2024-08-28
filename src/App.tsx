@@ -12,7 +12,7 @@ export function App () {
       children: [
         { path: '/', element: <Navigate to="/movies" replace /> },
         { path: '/movies', element: <Movies /> },
-        { path: 'movies/:id', element: <MovieDetails /> },
+        { path: 'movies/:movieId', element: <MovieDetails /> },
         { path: 'search', element: 'Search' },
         { path: '*', element: 'NotFound' },
       ],
