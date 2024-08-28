@@ -13,11 +13,11 @@ import { MovieCast } from './MovieCast'
 
 export function MovieDetails () {
   const [isDesktop] = useMediaQuery('(min-width: 30em)')
-  const { id } = useParams()
-  const { data: movieDetailSData } = useMovieDetails(id)
-  const { data: movieVideosData } = useMovieVideos(id)
+  const { movieId } = useParams()
+  const { data: movieDetailSData } = useMovieDetails(movieId)
+  const { data: movieVideosData } = useMovieVideos(movieId)
 
-  const { title, poster_path: posterPath, vote_average: voteAverage, imdb_id: imdbId, homepage } = movieDetailSData || {}
+  const { title, poster_path: posterPath } = movieDetailSData || {}
   const imagePath = `${MOVIE_IMAGE_BASE_URL}${posterPath}`
   const { key: videoKey } = movieVideosData?.results[0] || {}
   const videoUrl = `${YOUTUBE_BASE_URL}${videoKey}`
@@ -35,8 +35,8 @@ export function MovieDetails () {
         : <MovieInfoMobile imagePath={imagePath} title={title} videoUrl={videoUrl} />
       }
       <HStack justifyContent="space-between" width="100%">
-        <MovieLink imdbId={imdbId} homepage={homepage} />
-        <MovieVote voteAverage={voteAverage} />
+        <MovieLink movieId={movieId} />
+        <MovieVote movieId={movieId} />
       </HStack>
       <MovieDirector />
       <MovieCast />

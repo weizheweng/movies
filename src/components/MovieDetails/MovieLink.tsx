@@ -2,13 +2,15 @@ import { Button, Flex, Link, Text } from '@chakra-ui/react'
 import { IMDB_BASE_URL } from '../../constants/constants'
 import { IMDb } from '../Icons/Icons'
 import { colors } from '../../styles/colors'
+import { useMovieDetails } from '../../hooks-api/useMovieDetails'
 
 interface MovieIMDbProps {
-  imdbId?: string,
-  homepage?: string,
+  movieId?: string,
 }
 
-export function MovieLink ({ imdbId, homepage }: MovieIMDbProps) {
+export function MovieLink ({ movieId }: MovieIMDbProps) {
+  const { data: movieDetailSData } = useMovieDetails(movieId)
+  const { imdb_id: imdbId, homepage } = movieDetailSData || {}
   const imdbUrl = `${IMDB_BASE_URL}${imdbId}/`
   return (
     <Flex gap={2}>
