@@ -1,4 +1,4 @@
-import { HStack, Tag, TagLabel, useBreakpointValue } from '@chakra-ui/react'
+import { Box, HStack, Tag, TagLabel, useBreakpointValue } from '@chakra-ui/react'
 import * as OpenCC from 'opencc-js'
 import { useMovieDetails } from '../../hooks-api/useMovieDetails'
 import { colors } from '../../styles/colors'
@@ -16,11 +16,13 @@ export function MovieGenres ({ movieId }: MovieGenresProps) {
     <HStack alignItems="flex-start" width="100%" gap={3} overflow="auto">
       {
         genres?.map(genre => (
-          <Tag key={genre.id} whiteSpace="nowrap" minW="unset" backgroundColor={colors.gray['300']} borderRadius={8}>
-            <TagLabel fontSize={fontSize} color={colors.gray['800']}>
-              {converter(genre.name)}
-            </TagLabel>
-          </Tag>
+          <Box key={genre.id} maxW={40} pt={0.5} pb={0.5}>
+            <Tag whiteSpace="nowrap" minW="unset" backgroundColor={colors.gray['300']} borderRadius={8}>
+              <TagLabel fontSize={fontSize} color={colors.gray['800']}>
+                {converter(genre.name)}
+              </TagLabel>
+            </Tag>
+          </Box>
         ))
       }
     </HStack>
