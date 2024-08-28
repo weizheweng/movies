@@ -10,6 +10,7 @@ import { MovieInfoMobile } from './MovieInfoMobile'
 import { MovieLink } from './MovieLink'
 import { MovieDirector } from './MovieDirector'
 import { MovieCast } from './MovieCast'
+import { MovieSimilar } from './MovieSimilar'
 
 export function MovieDetails () {
   const [isDesktop] = useMediaQuery('(min-width: 30em)')
@@ -40,6 +41,7 @@ export function MovieDetails () {
       </HStack>
       <MovieDirector />
       <MovieCast />
+      <MovieSimilar />
     </VStack>
   )
 }
