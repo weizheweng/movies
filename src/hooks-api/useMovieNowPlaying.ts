@@ -4,8 +4,8 @@ import { tmdbSWRFetcher } from '../utils/tmdbSWRFetcher'
 import { type MovieList } from '../types/Movies'
 import { LANGUAGE, REGION } from '../constants/constants'
 
-export function useMovieNowPlaying (page?: number) {
-  const key = urlWithQueryParams('/movie/now_playing',
+export function useMoviePopular (page?: number) {
+  const key = urlWithQueryParams('/movie/popular',
     { language: LANGUAGE, page, region: REGION }
   )
   const { data, error, isLoading, mutate } = useSWR<MovieList>(key, tmdbSWRFetcher)
