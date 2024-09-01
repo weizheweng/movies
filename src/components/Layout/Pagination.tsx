@@ -1,11 +1,10 @@
-import { ArrowBackIcon, ArrowForwardIcon } from '@chakra-ui/icons'
+import { ArrowLeft, ArrowRight, DoubleArrowLeft, DoubleArrowRight } from '../Icons/Icons'
 import { HStack, IconButton, Text } from '@chakra-ui/react'
 
 const buttonProps = {
-  isRound: true,
   variant: 'outline',
-  colorScheme: 'blue',
   size: 'sm',
+  borderColor: 'gray.600',
 }
 
 interface PaginationProps {
@@ -15,14 +14,24 @@ interface PaginationProps {
 }
 
 export function Pagination ({ currentPage, totalPages, handlePageChange }: PaginationProps) {
+  const isFirstPageDisabled = Number(currentPage) === 1
+  const isLastPageDisabled = Number(currentPage) === totalPages
   const isPrevDisabled = Number(currentPage) === 1
   const isNextDisabled = Number(currentPage) === totalPages
+
   return (
-    <HStack gap={5} mt={6} width="100%" alignItems="center" justifyContent="center">
+    <HStack gap={3} mt={6} width="100%" alignItems="center" justifyContent="center">
       <IconButton
         {...buttonProps}
         aria-label="Previous"
-        icon={<ArrowBackIcon />}
+        icon={<DoubleArrowLeft />}
+        isDisabled={isFirstPageDisabled}
+        onClick={() => handlePageChange(1)}
+      />
+      <IconButton
+        {...buttonProps}
+        aria-label="Previous"
+        icon={<ArrowLeft />}
         isDisabled={isPrevDisabled}
         onClick={() => handlePageChange(currentPage - 1)}
       />
@@ -34,9 +43,16 @@ export function Pagination ({ currentPage, totalPages, handlePageChange }: Pagin
       <IconButton
         {...buttonProps}
         aria-label="Next"
-        icon={<ArrowForwardIcon />}
+        icon={<ArrowRight />}
         isDisabled={isNextDisabled}
         onClick={() => handlePageChange(currentPage + 1)}
+      />
+      <IconButton
+        {...buttonProps}
+        aria-label="Previous"
+        icon={<DoubleArrowRight />}
+        isDisabled={isLastPageDisabled}
+        onClick={() => handlePageChange(totalPages ?? 0)}
       />
     </HStack>
   )
