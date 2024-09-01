@@ -17,4 +17,4 @@ export interface Movie {
   vote_count: number,
 }
 
-export type MovieList = TmdbPageResponse<Movie>
+export type MovieListResponse = TmdbPageResponse<Movie>
