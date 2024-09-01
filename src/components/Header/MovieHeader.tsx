@@ -1,7 +1,7 @@
-import { Box, IconButton, useColorMode } from '@chakra-ui/react'
+import { Box, HStack, IconButton, useColorMode } from '@chakra-ui/react'
 import { Logo } from '../Icons/Icons'
 import { Header } from './Header'
-import { SunIcon, MoonIcon } from '@chakra-ui/icons'
+import { SunIcon, MoonIcon, SearchIcon } from '@chakra-ui/icons'
 import { useNavigate } from 'react-router-dom'
 
 const Left = () => {
@@ -17,16 +17,29 @@ const Left = () => {
 const Right = () => {
   const { colorMode, toggleColorMode } = useColorMode()
   const isLight = colorMode === 'light'
+  const navigate = useNavigate()
+  const handleSearch = () => navigate('/search')
   return (
-    <IconButton
-      aria-label="Toggle theme"
-      icon={isLight ? <SunIcon /> : <MoonIcon />}
-      variant="ghost"
-      isRound
-      onClick={toggleColorMode}
-      w={6}
-      h={6}
-    />
+    <HStack gap={2}>
+      <IconButton
+        aria-label="Toggle theme"
+        icon={isLight ? <SunIcon /> : <MoonIcon />}
+        variant="ghost"
+        isRound
+        onClick={toggleColorMode}
+        w={6}
+        h={6}
+      />
+      <IconButton
+        aria-label="Search"
+        icon={<SearchIcon />}
+        variant="ghost"
+        isRound
+        onClick={handleSearch}
+        w={6}
+        h={6}
+      />
+    </HStack>
   )
 }
 
