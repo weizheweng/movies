@@ -3,6 +3,7 @@ import { Layout } from './components/Layout/Layout'
 import { MovieDetails } from './components/MovieDetails/MovieDetails'
 import { Movies } from './components/Movies/Movies'
 import './global.css'
+import { Search } from './components/Search/Search'
 
 export function App () {
   const router = createBrowserRouter([
@@ -13,7 +14,7 @@ export function App () {
         { path: '/', element: <Navigate to="/movies" replace /> },
         { path: '/movies', element: <Movies /> },
         { path: 'movies/:movieId', element: <MovieDetails /> },
-        { path: 'search', element: 'Search' },
+        { path: 'search', element: <Search /> },
         { path: '*', element: 'NotFound' },
       ],
     },
