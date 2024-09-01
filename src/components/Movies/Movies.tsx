@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import { useMoviePopular } from '../../hooks-api/useMoviePopular'
 import { useCurrentPage } from '../../hooks/useCurrentPage'
 import { SkeletonMovieList } from '../Skeleton/SkeletonMovieList'
+import { Heading } from '@chakra-ui/react'
 
 export function Movies () {
   const currentPage = useCurrentPage()
@@ -19,7 +20,10 @@ export function Movies () {
 
   return (
     <>
-      {isLoading ? <SkeletonMovieList /> : <MovieList />}
+      <Heading size="md">
+        熱門推薦
+      </Heading>
+      {isLoading ? <SkeletonMovieList /> : <MovieList movieData={data} />}
       <Pagination currentPage={Number(currentPage)} totalPages={maxPage} handlePageChange={handlePageChange} />
     </>
   )

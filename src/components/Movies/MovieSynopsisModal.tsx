@@ -25,7 +25,7 @@ export function MovieSynopsisModal ({ isOpen, onClose, movieId }: MovieSynopsisM
   } = movieDetailSData || {}
   const imagePath = `${MOVIE_IMAGE_BASE_URL}${posterPath}`
   return (
-    <Modal onClose={onClose} isOpen={isOpen} isCentered scrollBehavior="inside">
+    <Modal onClose={onClose} isOpen={isOpen} isCentered scrollBehavior="inside" size={['md', 'lg', 'xl', '2xl', '3xl']}>
       <ModalOverlay />
       <ModalContent>
         <ModalBody p={4}>
@@ -48,7 +48,7 @@ export function MovieSynopsisModal ({ isOpen, onClose, movieId }: MovieSynopsisM
                     </AspectRatio>
                   </GridItem>
                   <GridItem colSpan={8}>
-                    <VStack gap={2} height="100%" alignItems="flex-start" justifyContent="space-between">
+                    <VStack gap={2} height="100%" alignItems="flex-start">
                       <MovieTitle title={title} originalTitle={originalTitle} releaseDate={releaseDate} runtime={runtime} isHorizontalAligned={false} />
                       <MovieGenres movieId={movieId} />
                       <MovieVote movieId={movieId} />
