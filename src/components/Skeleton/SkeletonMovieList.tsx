@@ -5,7 +5,7 @@ export function SkeletonMovieList () {
     <>
       <Skeleton>
         <Heading size="md">
-          現正熱映
+          熱門推薦
         </Heading>
       </Skeleton>
       <SimpleGrid columns={[2, 3, 4, 5]} spacing={6} mt={4}>

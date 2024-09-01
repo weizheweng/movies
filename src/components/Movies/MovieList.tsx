@@ -1,6 +1,6 @@
 import { Heading, SimpleGrid } from '@chakra-ui/react'
 import { MovieListCard } from './MovieListCard'
-import { useMoviePopular } from '../../hooks-api/useMovieNowPlaying'
+import { useMoviePopular } from '../../hooks-api/useMoviePopular'
 import { useCurrentPage } from '../../hooks/useCurrentPage'
 
 export function MovieList () {
@@ -10,7 +10,7 @@ export function MovieList () {
   return (
     <>
       <Heading size="md">
-        現正熱映
+        熱門推薦
       </Heading>
       <SimpleGrid columns={[2, 3, 4, 5]} spacing={6} mt={4}>
         {data?.results.map(movie => (

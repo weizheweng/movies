@@ -2,11 +2,12 @@ import useSWR from 'swr'
 import { urlWithQueryParams } from '../utils/urlWithQueryParams'
 import { tmdbSWRFetcher } from '../utils/tmdbSWRFetcher'
 import { type MovieList } from '../types/Movies'
-import { LANGUAGE, REGION } from '../constants/constants'
+import { LANGUAGE } from '../constants/languageEnum'
+import { REGION } from '../constants/regionEnum'
 
 export function useMoviePopular (page?: number) {
   const key = urlWithQueryParams('/movie/popular',
-    { language: LANGUAGE, page, region: REGION }
+    { language: LANGUAGE.ZH_TW, page, region: REGION.TW }
   )
   const { data, error, isLoading, mutate } = useSWR<MovieList>(key, tmdbSWRFetcher)
 
