@@ -3,7 +3,6 @@ import { useMovieCredits } from '../../hooks-api/useMovieCredits'
 import { Box, Button, Flex, HStack, Text, useDisclosure } from '@chakra-ui/react'
 import { AvatarTooltip } from '../common/AvatarTooltip'
 import { MovieCastModal } from './MovieCastModal'
-import { colors } from '../../styles/colors'
 
 export function MovieCast () {
   const { movieId } = useParams()
@@ -16,7 +15,7 @@ export function MovieCast () {
       <Flex w="100%" flexDirection="column" gap={3}>
         <HStack>
           <Text as="b" fontSize="xl">演員</Text>
-          <Button backgroundColor={colors.gray['300']} color={colors.gray['800']} size="sm" borderRadius={8} onClick={onOpen}>查看更多</Button>
+          <Button backgroundColor="gray.300" color="gray.800" size="sm" borderRadius={8} onClick={onOpen}>查看更多</Button>
         </HStack>
         <Flex overflowX="auto" gap={4}>
           <HStack>

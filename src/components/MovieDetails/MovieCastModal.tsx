@@ -1,6 +1,6 @@
 import { Avatar, HStack, Modal, ModalBody, ModalCloseButton, ModalContent, ModalHeader, ModalOverlay, Text, VStack } from '@chakra-ui/react'
 import { type Cast } from '../../types/MovieCredits'
-import { CAST_IMAGE_BASE_URL } from '../../constants/constants'
+import { CAST_IMAGE_BASE_URL } from '../../constants/baseUrl'
 
 interface MovieCastModalProps {
   isOpen: boolean,

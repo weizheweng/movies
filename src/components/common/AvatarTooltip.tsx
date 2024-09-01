@@ -1,6 +1,6 @@
 import { Avatar, Tooltip, useOutsideClick } from '@chakra-ui/react'
 import { useRef, useState } from 'react'
-import { CAST_IMAGE_BASE_URL } from '../../constants/constants'
+import { CAST_IMAGE_BASE_URL } from '../../constants/baseUrl'
 
 interface AvatarTooltipProps {
   originalName: string,

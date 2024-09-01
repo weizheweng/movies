@@ -1,7 +1,7 @@
 import { AspectRatio, Image, Grid, GridItem, Modal, ModalBody, ModalContent, ModalOverlay, VStack, Spinner, Flex } from '@chakra-ui/react'
 import { useMovieDetails } from '../../hooks-api/useMovieDetails'
 import { useState } from 'react'
-import { MOVIE_IMAGE_BASE_URL } from '../../constants/constants'
+import { MOVIE_IMAGE_BASE_URL } from '../../constants/baseUrl'
 import { MovieTitle } from '../MovieDetails/MovieTitle'
 import { MovieGenres } from '../MovieDetails/MovieGenres'
 import { MovieOverview } from '../MovieDetails/MovieOverview'
@@ -48,7 +48,7 @@ export function MovieSynopsisModal ({ isOpen, onClose, movieId }: MovieSynopsisM
                     </AspectRatio>
                   </GridItem>
                   <GridItem colSpan={8}>
-                    <VStack gap={2} height="100%" alignItems="flex-start">
+                    <VStack gap={2} height="100%" alignItems="flex-start" justifyContent="space-between">
                       <MovieTitle title={title} originalTitle={originalTitle} releaseDate={releaseDate} runtime={runtime} isHorizontalAligned={false} />
                       <MovieGenres movieId={movieId} />
                       <MovieVote movieId={movieId} />

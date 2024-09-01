@@ -1,10 +1,9 @@
 import { Box, Text, Image, VStack, Tag, TagLeftIcon, HStack, AspectRatio, Icon, TagLabel, Flex, useDisclosure } from '@chakra-ui/react'
 import { type Movie } from '../../types/Movies'
-import { MOVIE_IMAGE_BASE_URL } from '../../constants/constants'
+import { MOVIE_IMAGE_BASE_URL } from '../../constants/baseUrl'
 import { InfoIcon, StarIcon } from '@chakra-ui/icons'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { colors } from '../../styles/colors'
 import { MovieSynopsisModal } from './MovieSynopsisModal'
 
 const cardStyle = {
@@ -50,16 +49,16 @@ export function MovieListCard ({ data, isShowLanguage = true }: MovieListCardPro
         <VStack p={2} pt={3} gap={1.5} alignItems="flex-start">
           <HStack gap={1} justifyContent="space-between" width="100%">
             <Flex gap={1}>
-              <Tag gap={1} backgroundColor={colors.gray['300']}>
+              <Tag gap={1} backgroundColor="gray.300">
                 <TagLeftIcon as={StarIcon} color="yellow.500" mr={0} />
-                <TagLabel color={colors.gray['800']}>
+                <TagLabel color="gray.800">
                   {(data.vote_average).toFixed(1)}
                 </TagLabel>
               </Tag>
               {
                 isShowLanguage &&
-                  <Tag backgroundColor={colors.gray['300']}>
-                    <TagLabel color={colors.gray['800']}>
+                  <Tag backgroundColor="gray.300">
+                    <TagLabel color="gray.800">
                       {data.original_language.toUpperCase()}
                     </TagLabel>
                   </Tag>
