@@ -22,7 +22,10 @@ export function MovieDetails () {
 
   const { title, poster_path: posterPath } = movieDetailSData || {}
   const imagePath = `${MOVIE_IMAGE_BASE_URL}${posterPath}`
-  const { key: videoKey } = movieVideosData?.results[0] || movieVideosDataEn?.results[0] || {}
+  const trailer = movieVideosData?.results.find(video => video.type === 'Trailer' && video.site === 'YouTube')
+  const trailerEn = movieVideosDataEn?.results.find(video => video.type === 'Trailer' && video.site === 'YouTube')
+
+  const { key: videoKey } = trailer || trailerEn || {}
   const videoUrl = `${YOUTUBE_BASE_URL}${videoKey}`
 
   return (
