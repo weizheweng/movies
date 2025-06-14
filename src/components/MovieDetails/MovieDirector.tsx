@@ -1,7 +1,7 @@
 import { useParams } from 'react-router-dom'
 import { useMovieCredits } from '../../hooks-api/useMovieCredits'
 import { HStack, Text, VStack } from '@chakra-ui/react'
-import { AvatarTooltip } from '../common/AvatarTooltip'
+import { AvatarTooltip } from '../AvatarTooltip/AvatarTooltip'
 
 export function MovieDirector () {
   const { movieId } = useParams()

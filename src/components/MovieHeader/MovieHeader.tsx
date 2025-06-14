@@ -1,6 +1,6 @@
 import { Box, HStack, IconButton, useColorMode } from '@chakra-ui/react'
 import { Logo } from '../Icons/Icons'
-import { Header } from './Header'
+import { Header } from '../../layouts/Header/Header'
 import { SunIcon, MoonIcon, SearchIcon } from '@chakra-ui/icons'
 import { useNavigate } from 'react-router-dom'
 

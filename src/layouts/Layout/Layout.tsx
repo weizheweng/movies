@@ -1,6 +1,6 @@
 import { Box } from '@chakra-ui/react'
 import { Outlet } from 'react-router-dom'
-import { MovieHeader } from '../Header/MovieHeader'
+import { MovieHeader } from '../../components/MovieHeader/MovieHeader'
 
 export function Layout () {
   return (

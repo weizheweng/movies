@@ -1,5 +1,5 @@
 import { MovieList } from './MovieList'
-import { Pagination } from '../Layout/Pagination'
+import { Pagination } from '../Pagination/Pagination'
 import { useNavigate } from 'react-router-dom'
 import { useMoviePopular } from '../../hooks-api/useMoviePopular'
 import { useCurrentPage } from '../../hooks/useCurrentPage'

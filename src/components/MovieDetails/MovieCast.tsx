@@ -1,7 +1,7 @@
 import { useParams } from 'react-router-dom'
 import { useMovieCredits } from '../../hooks-api/useMovieCredits'
 import { Box, Button, Flex, HStack, Text, useDisclosure } from '@chakra-ui/react'
-import { AvatarTooltip } from '../common/AvatarTooltip'
+import { AvatarTooltip } from '../AvatarTooltip/AvatarTooltip'
 import { MovieCastModal } from './MovieCastModal'
 
 export function MovieCast () {
