@@ -20,9 +20,7 @@ export function Movies () {
 
   return (
     <>
-      <Heading size="md">
-        熱門推薦
-      </Heading>
+      <Heading size="md">熱門推薦</Heading>
       {isLoading ? <SkeletonMovieList /> : <MovieList movieData={data} />}
       <Pagination currentPage={Number(currentPage)} totalPages={maxPage} handlePageChange={handlePageChange} />
     </>
