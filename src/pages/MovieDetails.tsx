@@ -12,13 +12,15 @@ import { MovieDirector } from '../components/MovieDetails/MovieDirector'
 import { MovieCast } from '../components/MovieDetails/MovieCast'
 import { MovieSimilar } from '../components/MovieDetails/MovieSimilar'
 import { LANGUAGE } from '../constants/languageEnum'
+import { SkeletonMovieDetailsDesktop } from '../components/Skeleton/SkeletonMovieDetailsDesktop'
+import { SkeletonMovieDetailsMobile } from '../components/Skeleton/SkeletonMovieDetailsMobile'
 
 export function MovieDetails () {
   const [isDesktop] = useMediaQuery('(min-width: 30em)')
   const { movieId } = useParams()
-  const { data: movieDetailSData } = useMovieDetails(movieId)
-  const { data: movieVideosData } = useMovieVideos(movieId, LANGUAGE.ZH_TW)
-  const { data: movieVideosDataEn } = useMovieVideos(movieId, LANGUAGE.EN_US)
+  const { data: movieDetailSData, isLoading: isMovieDetailLoading } = useMovieDetails(movieId)
+  const { data: movieVideosData, isLoading: isMovieVideosLoading } = useMovieVideos(movieId, LANGUAGE.ZH_TW)
+  const { data: movieVideosDataEn, isLoading: isMovieVideosLoadingEn } = useMovieVideos(movieId, LANGUAGE.EN_US)
 
   const { title, poster_path: posterPath } = movieDetailSData || {}
   const imagePath = `${MOVIE_IMAGE_BASE_URL}${posterPath}`
@@ -27,6 +29,10 @@ export function MovieDetails () {
 
   const { key: videoKey } = trailer || trailerEn || {}
   const videoUrl = `${YOUTUBE_BASE_URL}${videoKey}`
+
+  if (isMovieDetailLoading || isMovieVideosLoading || isMovieVideosLoadingEn) {
+    return isDesktop ? <SkeletonMovieDetailsDesktop /> : <SkeletonMovieDetailsMobile />
+  }
 
   return (
     <VStack gap={6} width="100%">
