@@ -1,9 +1,9 @@
 import { createBrowserRouter, Navigate, RouterProvider } from 'react-router-dom'
 import { Layout } from './layouts/Layout/Layout'
-import { MovieDetails } from './components/MovieDetails/MovieDetails'
-import { Movies } from './components/Movies/Movies'
+import { MovieDetails } from './pages/MovieDetails'
+import { Movies } from './pages/Movies'
 import './global.css'
-import { Search } from './components/Search/Search'
+import { Search } from './pages/Search'
 
 export function App () {
   const router = createBrowserRouter([

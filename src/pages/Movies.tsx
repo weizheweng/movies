@@ -1,9 +1,9 @@
-import { MovieList } from './MovieList'
-import { Pagination } from '../Pagination/Pagination'
+import { MovieList } from '../components/Movies/MovieList'
+import { Pagination } from '../components/Pagination/Pagination'
 import { useNavigate } from 'react-router-dom'
-import { useMoviePopular } from '../../hooks-api/useMoviePopular'
-import { useCurrentPage } from '../../hooks/useCurrentPage'
-import { SkeletonMovieList } from '../Skeleton/SkeletonMovieList'
+import { useMoviePopular } from '../hooks-api/useMoviePopular'
+import { useCurrentPage } from '../hooks/useCurrentPage'
+import { SkeletonMovieList } from '../components/Skeleton/SkeletonMovieList'
 import { Heading } from '@chakra-ui/react'
 
 export function Movies () {
