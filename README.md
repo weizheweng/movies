@@ -94,9 +94,5 @@ pnpm lint # 運行代碼檢查
 - 響應式設計
 - Light Mode and Dark mode
 
-## 授權
-
-MIT License
-
 
 ### Developed with [TMDB](https://www.themoviedb.org/) APIs.
