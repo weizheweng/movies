@@ -5,7 +5,7 @@ import { type MovieVideos } from '../types/MovieVideos'
 import { type LANGUAGE } from '../constants/languageEnum'
 
 export function useMovieVideos (movieId?: string, language?: LANGUAGE) {
-  const key = urlWithQueryParams(`/movie/${movieId}/videos`, { language })
+  const key = movieId && language ? urlWithQueryParams(`/movie/${movieId}/videos`, { language }) : null
   const { data, error, isLoading, mutate } = useSWR<MovieVideos>(key, tmdbSWRFetcher)
 
   return {

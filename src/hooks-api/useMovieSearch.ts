@@ -5,7 +5,7 @@ import { type MovieListResponse } from '../types/Movies'
 import { LANGUAGE } from '../constants/languageEnum'
 
 export function useMovieSearch (page?: number, query?: string) {
-  const key = query
+  const key = query && page
     ? urlWithQueryParams('/search/movie', { language: LANGUAGE.ZH_TW, page, query })
     : null
 

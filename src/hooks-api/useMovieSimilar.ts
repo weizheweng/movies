@@ -5,7 +5,7 @@ import { LANGUAGE } from '../constants/languageEnum'
 import { type MovieListResponse } from '../types/Movies'
 
 export function useMovieSimilar (movieId?: string) {
-  const key = urlWithQueryParams(`/movie/${movieId}/similar`, { language: LANGUAGE.ZH_TW })
+  const key = movieId ? urlWithQueryParams(`/movie/${movieId}/similar`, { language: LANGUAGE.ZH_TW }) : null
   const { data, error, isLoading, mutate } = useSWR<MovieListResponse>(key, tmdbSWRFetcher)
 
   return {

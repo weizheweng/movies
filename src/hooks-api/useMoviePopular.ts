@@ -6,9 +6,9 @@ import { LANGUAGE } from '../constants/languageEnum'
 import { REGION } from '../constants/regionEnum'
 
 export function useMoviePopular (page?: number) {
-  const key = urlWithQueryParams('/movie/popular',
-    { language: LANGUAGE.ZH_TW, page, region: REGION.TW }
-  )
+  const key = page
+    ? urlWithQueryParams('/movie/popular', { language: LANGUAGE.ZH_TW, page, region: REGION.TW })
+    : null
   const { data, error, isLoading, mutate } = useSWR<MovieListResponse>(key, tmdbSWRFetcher)
 
   return {
